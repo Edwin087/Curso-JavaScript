@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos JavaScript</title>
+</head>
+
+<body>
+    <h1>Fundamentos JavaScripT</h1>
+
+    <SCript>
+        var hola = "hola mundo"
+        console.log(hola);
+        let hello = "hello word"
+        console.log(hello);
+        console.log("***********var********")
+
+        var musica = "Rock"
+        console.log(" variable musica antes el bloque", musica);
+        /* el ambito de bloque es el que esta ceparado por llaver {}*/
+        {
+            var musica = "Pop"
+            console.log("la variable musica dentro del bloque", musica);
+        }
+        console.log("variable musica despues el bloque", musica);
+
+        // ......................
+
+        console.log("***********let********")
+        let musica2 = "Rock"
+        console.log(" variable musica antes el bloque", musica2);
+        /* el ambito de bloque es el que esta ceparado por llaver {}*/
+        {
+            let musica2 = "Pop"
+            console.log("la variable musica dentro del bloque", musica2);
+        }
+        console.log("variable musica despues el bloque", musica2);
+
+        const PI = 3.1416;
+        console.log(PI)
+
+        // lo siguiente es un objeto
+        let objeto = {
+            nombre: "edwin",
+            edad: 25
+        }
+
+        // lo siguiente es un arrego que es una colexion de datos 
+        let colores = ["blaco", "negro", "azul"]
+        console.log(objeto);
+        console.log(colores);
+
+        objeto.correo = "calleojeda4@gmail.com";
+        colores.push("anaranjado")
+        console.log(objeto);
+        console.log(colores);
+
+
+
+
+        // Cadenas de Texto (Strings).................
+        let nombre = "Edwin";
+        let apellido = "Calle";
+        let saludo = new String("Hola mundo")
+        let loren = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur eum aperiam modi ab odit, accusantium alias vel deserunt impedit repellat quia nulla voluptas voluptate provident quam doloribus vero doloremque eius?";
+
+        console.log(nombre, apellido, saludo)
+        console.log(
+            // length para ver cuantas letras tiene una cadenad e tecto
+            nombre.length,
+            apellido.length,
+            saludo.length,
+            // toUpperCase para mayusculas
+            nombre.toUpperCase(),
+            // toLowerCase para minusculas
+            apellido.toLowerCase(),
+            // includes para ver si se repite 
+            loren.includes("amet"),
+            // trim para quitar los espacios
+            loren.trim());
+
+
+        // Template Strings.....................
+
+        // concatenacion forma 1
+
+        let nombree = "Edwin";
+        let apellidoo = "Calle";
+        let saludoo = "Mi nombrte es: " + nombree + " " + apellidoo;
+        console.log(saludoo);
+        // concatenacion con templay String forma 2``
+        let saludo2 = `hola mi nombre es ${nombree} ${apellidoo}.`
+        console.log(saludo2);
+        // forma 1
+        let ul = " <ul> < li > primavera</> verano</li><li> otoño</li><li> invierno</li></ul > "
+        console.log(ul);
+        // forma 2
+        let ul2 = ` <ul>
+        <li> primavera</li>
+        <li> verano</li>
+        <li> otoño</li>
+        <li> invierno</li>
+
+    </ul>`
+        console.log(ul2);
+
+        //Números (Numbers) .........................
+        let a = 2;
+        let b = new Number(1);
+        let c = 7.19;
+        console.log(a, b);
+        let d = "5.6";
+        // toFixed numeros desimales va ha tener 
+        console.log(c.toFixed(1));
+        console.log(c.toFixed(5));
+        // parseInt debuelve la parte entera
+        console.log(parseInt(c));
+        // typeof de que tipo de  dato es
+        console.log(typeof c, typeof d)
+        console.log(a + b);
+        console.log(c + parseInt(d));
+        console.log(c + parseFloat(d));
+        console.log(c + Number.parseInt(d));
+        console.log(c + Number.parseFloat(d));
+
+        // valor boolean.........................
+        let verdadero = true;
+        let falso = false;
+        let v = Boolean(true);
+        let f = Boolean(false);
+        console.log(verdadero, falso);
+        console.log(typeof verdadero, typeof falso);
+        console.log(v, f)
+        console.log(Boolean(0));
+        console.log(Boolean(-7));
+        console.log(Boolean(""));
+        console.log(Boolean(" "));
+
+        // undefined, null & NaN......................
+        //undefined indica que no se ha inicializado una variable y que el valor está ausente
+        let indefinida;
+        console.log(indefinida);
+
+        //null es un valor especial que indica la ausencia de un valor
+        let nulo = null;
+        console.log(nulo);
+
+        //NaN - Not a Number
+        let noEsUnNumero = "hola" * 3.7;
+        console.log(noEsUnNumero)
+
+        // Funciones......................................
+        /*
+   Una función es un bloque de código, autocontenido, que se puede definir una vez y ejecutar en cualquier momento. Opcionalmente, una función puede aceptar parámetros y devolver un valor.
+   Las funciones en JavaScript son objetos, un tipo especial de objetos:
+   Se dice que las funciones son ciudadanos de primera clase porque pueden asignarse a un valor, y pueden pasarse como argumentos y usarse como un valor de retorno.
+   */
+        //Declaración de función
+        function estoEsUnaFuncion() {
+            console.log("Uno");
+            console.log("dos");
+            console.log("tres");
+        }
+
+        //Invocación de función
+        // estoEsUnaFuncion();
+
+        function unaFuncionQueDevuelveValor() {
+            console.log("Uno");
+            return 19;
+            console.log("dos");
+            console.log("tres");
+            return "Lafuncion ha retornado una cadena de texto";
+        }
+        // let valorDeFuncion = unaFuncionQueDevuelveValor();
+        // console.log(valorDeFuncion);
+
+        function saludar(nombre, edad) {
+            //para imprimir de esta forma  function saludar(nombre = "Coqueton", edad = 8)
+            console.log(`Hola mi nombre es:${nombre} y tengo ${edad} años`);
+        }
+        // o para imprimir de esta otra forma
+        saludar("Coqueton", 8);
+
+        // funciones declaradas vs funciones expresadas
+
+        funcionDeclarada();
+
+        function funcionDeclarada() {
+            console.log("Esto es una funcion declarada puede invocarce en cualquier parte de nuestro codigo incluso antes de que la funcion sea declarada")
+        }
+        funcionDeclarada();
+
+        // funcion anonima
+        const funcionExpresada = function () {
+            console.log("Esto es una funcion expresada es decir una funcion que se le ha acigando como una variable, si invocamos esta funcion antes de su definicion javaScript nos dira...");
+        }
+        funcionExpresada();
+
+
+        // Arreglos (Arrays..........................
+        const aa = [];
+        const bb = [1, true, "hola", ["A", "B", "C", [1, 2, 3]]];
+        console.log(aa, bb);
+        console.log(bb.length);
+        console.log(bb[2]);
+        console.log(bb[3][2]);
+        console.log(bb[3][3][0]);
+
+        const cc = Array.of("X", "Y", "Z", 9, 8, 7);
+        console.log(cc)
+
+        // para definir un array de cuantos son...
+        const dd = Array(100).fill(false);
+        console.log(dd);
+        // solian trabajar antes, ahora ya no
+        const e = new Array(1, 2, 3, true, false);
+        console.log(e);
+        const coloress = ["rojo", "verde", "Azul"]
+        console.log(coloress);
+        // push pone un elemento que asignas al final
+        coloress.push("Negro");
+        console.log(coloress);
+        // pop quita el ultimo elemento
+        coloress.pop();
+        console.log(coloress);
+
+        coloress.forEach(function (el, index) {
+            console.log(`<li id="${index}">${el}</li>`);
+        })
+
+
+
+        // Objetos ...............................
+        // es adecuado trabajar con const cuando trabajamos con objetos 
+        const bm = {}
+        console.log(bm);
+        // yan no trabajan mucho con esto
+        const cm = new Object();
+        console.log(cm)
+        /* dentro de un objeto a las variables se le van a llamar atributos/propiedades y a las funciones se les llama métodos */
+
+        const edw = {
+            nombr_e: "Edwin",
+            apelli_do: "Calle",
+            edadd: 25,
+            pasatiempos: ["Programar", "correr", "bolibol"],
+            soltero: true,
+            contacto: {
+                email: "calleojeda4@gmail.com",
+                movil: "0965844566"
+            },
+            saludarr: function () {
+                console.log(`hola`)
+            },
+
+            decirMisNombre: function () {
+                console.log(`Hola me llamo ${this.nombr_e} y tengo ${this.edadd} años y me puedes enviar un correo a ${this.contacto.email}`)
+            }
+        }
+
+        console.log(edw);
+        // de esta manera 
+        console.log(edw["nombr_e"]);
+        console.log(edw["apelli_do"]);
+        // o de esta manera que mas se utiliza
+        console.log(edw.apelli_do);
+        console.log(edw.edadd);
+        console.log(edw.soltero);
+        console.log(edw.pasatiempos);
+        console.log(edw.pasatiempos[0]);
+        console.log(edw.contacto);
+        console.log(edw.contacto.email);
+        edw.saludarr();
+        edw.decirMisNombre();
+        // Object permite listar las llaves de los objetos
+        console.log(Object.keys(edw));
+        // values da los valores
+        console.log(Object.values(edw));
+        // hasOwnProperty para ver si existe dentro del objeto
+        console.log(edw.hasOwnProperty("nombr_e"));
+        console.log(edw.hasOwnProperty("edadd"));
+
+
+
+        // Tipos de Operadores ....................
+        /* Operadores */
+        //    Aritméticos:  + - * / % () 
+
+        let aaa = 5 + (5 - 10) * 3;
+        let modulo = 5 % 2;
+        console.log(aaa);
+        console.log(modulo);
+
+
+        /*  Relacionales: >, <,   >=, <=, ==, ===, !=, !== */
+        console.log(8 > 9);
+        console.log(9 > 8);
+        console.log(8 >= 9);
+        console.log(9 >= 8);
+        console.log(7 < 7);
+        console.log(7 <= 7)
+
+        /*
+        = 1 igual es asignación  de variable
+        == 2 iguales es comparacion de valores
+        === 3 igulaes es comparación de tipo de dato y de valor
+        */
+        console.log(7 == 7);
+        console.log("7" == 7);
+        console.log(0 == false);
+        console.log(7 === 7);
+        console.log("7" === 7);
+        console.log(0 === false);
+
+        /* Incremento Decremento .*/
+        let i = 2;
+        /* i = i + 2;
+    
+        i -= 3;
+        console.log(i);*/
+
+        //operador unario
+
+        i++;
+        i--;
+        ++i;
+        --i;
+        console.log(i);
+
+        /*
+    Lógicos
+      ! - Not : Niega, es decir lo que es verdadero lo vuelve falso y viceversa
+      || - Or: Cuando tengo 2 o más condiciones, con que una se cumpla, es decir sea verdadera, el OR será verdadero.
+      && - And: Cuando tengo 2 o más condiciones, todas tienen que cumplirse, es decir ser verdaderas, para que AND se valide */
+        console.log(!true);
+        console.log(!false);
+        console.log((9 === 9) || ("9" === 9));
+        console.log((9 === 9) && ("9" === 9));
+        console.log((9 === 9) && ("9" === "9"));
+
+
+
+        // Condicionales.....................
+        /* if - else */
+        let edaddd = 17;
+        if (edaddd > 17) {
+            console.log("Eres mayor de edad")
+        }
+        else {
+            console.log("Eres menor de edad")
+        }
+
+        if (edaddd >= 17) {
+            console.log("Eres mayor de edad")
+        }
+        else {
+            console.log("Eres menor de edad")
+        }
+
+        if (edaddd < 18) {
+            console.log("Eres mayor de edad")
+        }
+        else {
+            console.log("Eres menor de edad")
+        }
+
+        if (edaddd <= 17) {
+            console.log("Eres mayor de edad")
+        }
+        else {
+            console.log("Eres menor de edad")
+        }
+
+        /* if - else if - else  ifs anidados*/
+        /*
+              Déjame Dormir - 0hrs - 5hrs
+              Buenos dias 6hrs - 11hrs
+              Buenas tardes 12hrs - 18hrs
+              Buenas noches 19hrs - 23hrs
+            */
+
+        let hora = 5;
+        if (hora >= 0 && hora <= 5) {
+            console.log("Déjame dormir");
+        }
+        else if (hora >= 6 && hora <= 11) {
+            console.log("Buenos días");
+        }
+        else if (hora >= 12 && hora <= 18) {
+            console.log("Buenas tardes");
+        }
+        else {
+            console.log("Buenas noches");
+        }
+
+
+        if (hora < 6) {
+            console.log("Déjame dormir");
+        }
+        else if (hora > 5 && hora < 12) {
+            console.log("Buenos días");
+        }
+        else if (hora > 11 && hora < 19) {
+            console.log("Buenas tardes");
+        }
+        else {
+            console.log("Buenas noches");
+        }
+
+        /* Operador Ternario (condición) ? verdadero : falsa */
+        console.log("Operador ternario");
+
+        let eresMayor = (edaddd >= 18) ? "Eres mayor de edad"
+            : "Eres menor de edad";
+        console.log(eresMayor);
+
+        /* switch - case */
+        /*
+  domingo -0
+  lunes - 1
+  martes - 2
+  miércoles - 3
+  jueves - 4
+  viernes - 5
+  sábado - 6
+  */
+        let dia = 2;
+        switch (dia) {
+            case 0:
+                console.log("Domingo");
+                break;
+            case 1:
+                console.log("Lunes");
+                break;
+            case 2:
+                console.log("Martes");
+                break;
+            case 3:
+                console.log("Miercoles");
+                break;
+            case 4:
+                console.log("Jueves");
+                break;
+            case 5:
+                console.log("Viernes");
+                break;
+            case 6:
+                console.log("Sabado");
+                break;
+            default:
+                console.log("El día no existe");
+
+                break;
+        }
+
+    </SCript>
+</body>
+
+</html>
