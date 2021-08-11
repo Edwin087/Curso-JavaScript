@@ -457,7 +457,663 @@
                 break;
         }
 
+
+        // Ciclos repetitivos  (Loops).......................
+        let contador = 0;
+        /* while (contador < 15) {
+             console.log("while" + contador);
+             contador++;
+         }
+ 
+         do {
+             console.log("do while" + contador);
+             contador++;
+         } while (contador < 10);*/
+
+        /* for (inicialización de variable; condición; decremento o incremento) {
+          sentencias que ejecuta el for
+          sentencias que ejecuta el for
+          sentencias que ejecuta el for
+        } */
+
+
+        for (let ii = 0; ii < 10; ii++) {
+            console.log("for" + ii);
+
+        }
+
+        let numeroos = [10, 20, 30, 40, 50, 60, 70, 80, 90];
+
+        // length debuelve la longitud del Array
+        for (let ii = 0; ii < numeroos.length; ii++) {
+
+            console.log(numeroos[ii]);
+        }
+
+        const edwi = {
+            nombree: "Edwin",
+            apelliido: "Calle",
+            edaadd: 25,
+        }
+
+        // forin permite recorrer las propiedades o atributos que tiene un objeto
+        for (const propiedad in edwi) {
+            console.log(`key: ${propiedad},values: ${[propiedad]}`);
+        }
+
+        // forof permite recorrer todos los elemtos de cualquier objeto que sea iterable en javaScript arreglos etc
+
+        let cadenaa = "Hola mundo";
+        for (const elemtoo of cadenaa) {
+            console.log(elemtoo)
+        }
+
+
+        // Manejo de Errores ........................
+
+        try {
+            console.log("En el Try se agrega el código a evaluar");
+            noExiste;
+            console.log("Segundo mensaje en el try")
+        } catch (error) {
+            console.log("Catch, captura cualquier error surgido o lanzado en el try");
+            console.log(error);
+
+        } finally {
+            console.log("El bloque finally se ejecutará siempre al final de unbloque try-catch");
+        }
+
+
+        try {
+            let numer = 10;
+            // isNaN es una funcion, si es un numero devolvera falso o verdadero
+            if (isNaN(numer)) {
+                throw new Error("el caracter introducido no es un numero");
+
+            }
+            console.log(numer * numer);
+        } catch (error) {
+            console.log(`se produjo el siguiente error :" ${Error}`);
+
+        }
+
+
+
+        // break & continue................
+        const numer1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+
+        for (let ie = 0; ie < numer1.length; ie++) {
+            if (ie === 5) {
+                break;
+            }
+            console.log(numer1[ie]);
+        }
+
+
+        for (let ie = 0; ie < numer1.length; ie++) {
+            if (ie === 5) {
+                continue;
+            }
+            console.log(numer1[ie]);
+        }
+
+        // Destructuración ....................
+        const numer2 = [1, 2, 3];
+
+
+        //Sin destructuración
+        let unoo = numer2[0],
+            doss = numer2[1],
+            tress = numer2[2];
+        console.log(unoo, doss, tress);
+
+        //Con destructuración
+        const [one, two, three] = numer2;
+        console.log(one, two, three);
+
+        const persona1 = {
+            nombre1: "edw",
+            apellido2: "calle",
+            edad2: 26
+        };
+        let { nombre1, edad2, apellido2 } = persona1;
+
+        console.log(nombre1, apellido2, edad2);
+
+
+
+        // Objetos literales .................
+        let nombrre = "edwin",
+            edad = 7;
+
+        const perro = {
+            nombrre: nombrre,
+            edad: edad,
+            ladrar: function () {
+                console.log("guau guauuu")
+            }
+        }
+        console.log(perro);
+        perro.ladrar();
+
+
+        const dog = {
+            nombrre,
+            edad,
+            raza: "Callejero",
+            ladrar() {
+                console.log("guauu guauu guauu!!!")
+            }
+        }
+        console.log(dog);
+        dog.ladrar();
+
+        // Parámetros REST & Operador Spread...........
+
+        function sumar(a, b, ...c) {
+            let resultado = a + b;
+
+            c.forEach(function (n) {
+                resultado += n;
+
+            });
+            return resultado;
+        }
+        console.log(sumar(1, 2))
+        console.log(sumar(1, 2, 3));
+        console.log(sumar(1, 2, 3, 4));
+        console.log(sumar(1, 2, 3, 4, 5));
+        console.log(sumar(1, 2, 3, 4, 5, 6));
+        console.log(sumar(1, 2, 3, 4, 5, 6, 7));
+
+        const arr1 = [1, 2, 3, 4, 5],
+            arr2 = [6, 7, 8, 9, 0];
+        console.log(arr1, arr2);
+        const arr3 = [...arr1, ...arr2];
+        console.log(arr3);
+
+        // Arrow Functions.....................lugar dela funcion seria =>
+
+        /*const saludos = function () {
+            console.log("Hola");
+        }
+        saludos();*/
+
+
+        // seria asi
+        /*const saludos = () => console.log("Hola");
+        saludos();*/
+
+
+        // o de esta otra forma
+        const saludos = nombr => console.log(`Hola ${nombr}`);
+        saludos("irma")
+
+        /* const sumar = function (a, b) {
+       return a + b;
+     } */
+        const suma = (a, b) => a + b;
+        console.log(suma(5, 5));
+
+        const funcionDevariasLineas = () => {
+            console.log("Uno");
+            console.log("Dos");
+            console.log("Tres");
+
+        }
+        funcionDevariasLineas();
+
+        const numeross = [1, 2, 3, 4, 5];
+
+        // el metodo forEachr recibe una funcion
+        /*numeross.forEach(function (el, index) {
+            console.log(`EL ELEMETO ${el} ESTA EN LA POSICION ${index}`);
+        });*/
+
+        // transformar a una arron funtion 
+        numeross.forEach((el, index) => console.log(`${el} ESTA EN LA POSICION ${index}`));
+
+        // this hace referencia al objeto o al contexto que me encuentro 
+        /*function pero() {
+            console.log(this);
+        }
+        pero();*/
+
+
+        // forma 1
+        /*  const pero = {
+              nombre: "coqueton",
+              ladra: function () {
+                  console.log(this);
+              }
+          }
+          pero.ladra();*/
+
+
+        // forma 2
+        /*const pero = {
+            nombre: "coqueton",
+            ladra: () => {
+                console.log(this);
+            }
+        }
+        pero.ladra();*/
+
+        // forma 3
+        const pero = {
+            nombre: "coqueton",
+            ladra() {
+                console.log(this);
+            }
+        }
+        pero.ladra();
+
+
+        // Prototipos...............................POO
+        /*
+  Clases - Modelo a seguir.
+  Objetos - Es una instancia de una clase
+    Atributos - es una característica o propiedad del objeto (son variables dentro de un objeto)
+    Métodos - son las acciones que un objeto puede realizar (son funciones dentro de un objeto)
+   */
+        /* const animal = {
+             nomb: "sasa",
+             sonar() {
+                 console.log("Hago sonidos por que estoy feliz");
+             }
+         }
+ 
+         const anima2 = {
+             nomb: "lolabunny",
+             sonar() {
+                 console.log("Hago sonidos por que estoy feliz");
+             }
+         }
+         console.log(animal);
+         console.log(anima2);*/
+
+
+
+        //Función constructora-----
+        // Función constructora version 1
+        /*function Animall(nombre3, genero) {
+            //    Atributos
+            this.nombre3 = nombre3;
+            this.genero = genero;
+
+            // metodo
+            this.sonar = function () {
+                console.log("Hago sonidos por que estoy feliz");
+            }
+            this.saludoss = function () {
+                console.log(`hola me llamo ${nombre3}`);
+
+            }
+        }*/
+
+
+        //funcion constructora donde hacignamos los metodos al prototipo no a al afuncion como tal
+        function Animall(nombre3, genero) {
+            //    Atributos
+            this.nombre3 = nombre3;
+            this.genero = genero;
+        }
+
+        // metodos agregados al prototipo de la funcion constructora
+        Animall.prototype.sonar = function () {
+            console.log("Hago sonidos por que estoy feliz");
+        }
+        Animall.prototype.saludoss = function () {
+            console.log(`hola me llamo ${this.nombre3}`);
+        }
+
+
+
+        //Herencia Prototípica
+
+        function Perro(nombre3, genero, tamanio) {
+            this.super = Animall;
+            this.super(nombre3, genero);
+            this.tamanio = tamanio;
+        }
+        //Perro está heredando de Animall
+        Perro.prototype = new Animall();
+        Perro.prototype.constructor = Perro;
+        //Sobreescritura de métodos del Prototipo padre en el hijo
+        Perro.prototype.sonar = function () {
+            console.log("Soy un perro y mi sonido es un ladrido");
+
+        }
+
+        Perro.prototype.ladrar = function () {
+            console.log("Guau guauu!!!!");
+        }
+
+
+
+
+        const roky = new Perro("roky", "macho", "mediano"),
+            sasa = new Animall("sasa", "hembra");
+
+        console.log(roky);
+        console.log(sasa);
+        roky.sonar();
+        roky.ladrar();
+        roky.saludoss();
+        sasa.sonar();
+        sasa.saludoss();
+
+
+
+        // Clases.................................
+        // las clases no resiben parametros, dentro de (constructor) iria los atributos
+        /*class Animallo {
+            //el constructor es un método especial que se ejecuta en el momento de instanciar la clase
+            constructor(nombre3, genero) {
+                this.nombre3 = nombre3;
+                this.genero = genero;
+            }
+            // metodo
+
+
+            sonar() {
+                console.log("Hago sonidos por que estoy feliz");
+            }
+            saludoss() {
+                console.log(`hola me llamo ${this.nombre3}`);
+
+            }
+        }
+
+        class Perros extends Animallo {
+            constructor(nombre3, genero, tamanio) {
+                //con el método super() se manda a llamar el constructor de la clase padre
+                super(nombre3, genero);
+                this.tamanio = tamanio;
+                this.raza = null;
+            }
+
+            sonar() {
+                console.log("Soy un perro y mi sonido es un ladrido");
+            }
+
+            ladraa() {
+                console.log("Guauuu Guauuu!!!");
+            }
+
+
+            //un método estático se pueden ejecutar sin necesidad de instanciar la clase
+
+            static queEres() {
+                console.log("Los perros somos animales mamíferos que pertenecemos a la familia de los caninos. Somos considerados los mejores amigos del hombre.");
+            }
+
+            //Los setters y getters son métodos especiales que nos permiten establecer y obtener los valores de atributos de nuestra clase
+
+            get getRaza() {
+                return this.raza;
+
+            }
+
+            set setRaza(raza) {
+                this.raza = raza;
+            }
+
+        }
+
+
+        Perros.queEres();
+
+        const mimi = new Animallo("mimi", "hembra"),
+            scoby = new Perros("Scoby", "Macho", "Gigante");
+
+        console.log(mimi);
+        mimi.saludoss();
+        mimi.sonar();
+        console.log(scoby);
+        scoby.saludoss();
+        scoby.sonar();
+        scoby.ladraa();
+        console.log(scoby.getRaza);
+        scoby.setRaza = "Gran Danes";
+        console.log(scoby.getRaza)*/
+
+
+
+
+        // Objeto console...................................
+        /*console.log(console);
+        console.error("estos es un error");
+        console.warn("estos es un aviso");
+        console.info("estos es un mensaje informativo");
+        console.log("un registro de lo que esta pasando en nuetra aplicacion");
+        let nomb = "edwin",
+            appell = "Calle",
+            eda = 26;
+        // diferentes formas de imprimir en consola
+        console.log(nomb);
+        console.log(appell);
+        console.log(eda);
+        console.log(nomb, appell, eda);
+        console.log(`Hola mi nombre es ${nomb} ${appell} y tengo ${eda} años.`);
+        console.log(`Hola mi nombre es %s %s y tengo %d años.`, nomb, appell, eda);
+        // console.clear es para limpiar la consola
+        //console.clear();
+
+        console.log(window);
+        console.log(document);
+        console.dir(window);
+        console.dir(document);
+
+        console.group("Cursos que toma Edwin en YouTube");
+        console.log("Curso de JavaScript");
+        console.log("Curso de CSS");
+        console.log("Curso de HTML");
+        console.log("Curso de Flexbox");
+        console.log("Curso de  Grid");
+        console.groupEnd();
+
+        console.log(console);
+        console.table(Object.entries(console).sort());
+
+        const numerosss = [1, 2, 3, 4, 5],
+            vocales = ["a", "e", "i", "o", "u"];
+        console.table(numerosss);
+        console.table(vocales);
+        const perrrro = {
+            nom: "coque",
+            raza: "cccc",
+            color: "negro"
+        }
+        console.table(perrrro);
+
+        console.time('Cuanto tiempo tarda mi código');
+        const arreglo = Array(1000000);
+
+        for (let i = 0; i < arreglo.length; i++) {
+            arreglo[i] = i;
+        }
+        console.timeEnd('Cuanto tiempo tarda mi código');
+        //console.log(arreglo);
+
+
+
+        for (let i = 0; i <= 100; i++) {
+            console.count("dodigo for");
+            console.log(i);
+        }
+
+        let x = 1,
+            y = 2,
+            pruebaXY = "SE espera que x sea menor que y";
+        console.assert(x < y, { x, y, pruebaXY });*/
+
+
+
+        // Objeto Date...................................
+        //console.log(Date());
+        /*let fecha = new Date();
+        console.log(fecha);
+        //día del mes
+        console.log(fecha.getDate());
+        //día de la semana D L M Mi J V S -> 0 1 2 3 4 5 6
+        console.log(fecha.getDay());
+        //mes Ene Feb Mar Abr May Jun Jul Ago Sep Oct Nov Dic -> 0 1 2 3 4 5 6 7 8 9 10 11
+        console.log(fecha.getMonth());
+
+        // en el año que estamos
+        console.log(fecha.getFullYear());
+        // horas
+        console.log(fecha.getHours());
+        // minutos
+        console.log(fecha.getMinutes());
+        // segundos
+        console.log(fecha.getSeconds());
+        console.log(fecha.getMilliseconds());
+        // debuelve toda la fecha completa desde el dia,años, hora minuto....etc
+        console.log(fecha.toString());
+        // para extraer solo la fecha
+        console.log(fecha.toDateString());
+        console.log(fecha.toLocaleString());
+        console.log(fecha.toLocaleDateString());
+        console.log(fecha.toLocaleTimeString());
+        console.log(fecha.getTimezoneOffset());
+        console.log(fecha.getUTCDate());
+        console.log(fecha.getUTCHours());
+        console.log(Date.now());
+        let cumpleEdw = new Date(1994, 8, 27);
+        console.log(cumpleEdw); */
+
+
+        // Objeto Math ....................
+        /*console.log(Math);
+         console.log(Math.pi);
+         // abs debuelve el valor absoluto de un numero ya sea negativo o positivo
+         console.log(Math.abs(7.8));
+
+         // ceil redondea un numero
+         console.log(Math.ceil(7.8));
+
+         // floor baja el un numero inmediato entero
+         console.log(Math.floor(7.8));
+         // round al numero mas alto o bajo redondea
+         console.log(Math.round(7.4));
+
+         //sqrt para sacar la raiz cuadrada de un numero
+         console.log(Math.sqrt(81));
+
+         // pow para elevar potencia
+         console.log(Math.pow(2, 5));
+
+         // si es positivo negativo o 0
+         console.log(Math.sign(-0.3)); // -1 0 1
+
+         //random da numeros aleatorios entre 0 y 1
+         console.log(Math.random());
+
+         console.log(Math.round(Math.random() * 1000))*/
+
+
+
+
+        // Operador de Cortocircuito.............
+        /*
+           Cortocircuito OR - cuando el valor de la izquierda en la expresión siempre pueda validar a true, es el valor que se cargará por defecto
+           Cortocircuito AND - cuando el valor de la izquierda en la expresión siempre pueda validar a false, es el valor que se cargará por defecto
+            */
+
+        /*function saludar(nombre) {
+            nombre = nombre || "Desconocido";
+            console.log(`hola ${nombre}`);
+
+        }
+        console.log();
+        saludar("edw");
+        saludar();
+        console.log("cadena" || "valor de la derecha");
+        console.log(19 || "valor de la derecha");
+        console.log(true || "valor de la derecha");
+        console.log([] || "valor de la derecha");
+        console.log({} || "valor de la derecha");
+        console.log(false || "Valor de la derecha");
+        console.log(null || "Valor de la derecha");
+        console.log(undefined || "Valor de la derecha");
+        console.log("" || "Valor de la derecha");
+        console.log(-2 || "Valor de la derecha");
+        console.log(0 || "Valor de la derecha");
+
+        console.log(false && "Valor de la derecha");
+        console.log(null && "Valor de la derecha");
+        console.log(undefined && "Valor de la derecha");
+        console.log("" && "Valor de la derecha");
+        console.log(-2 && "Valor de la derecha");
+        console.log(0 && "Valor de la derecha");
+
+        console.log("cadena" && "Valor de la derecha");
+        console.log(19 && "Valor de la derecha");
+        console.log(true && "Valor de la derecha");
+        console.log([] && "Valor de la derecha");
+        console.log({} && "Valor de la derecha");*/
+
+
+
+
+        // alert, confirm y prompt..............no es necesario poner el window-delante
+        /*console.log(window);
+        //window.alert("Hola es una alerta");
+        // window.confirm("Hola esto es una confirmación");
+        // window.promp("Hola esto es un aviso y permite al usuario ingresar un valor");
+
+
+        let alerta = alert("Hola es una alerta"),
+            confirmación = confirm("Hola esto es una confirmación"),
+            aviso = prompt("Hola esto es un aviso y permite al usuario ingresar un valor");
+        console.log(alerta);
+        console.log(confirmación);
+        console.log(aviso);*/
+
+
+
+
+        // Expresiones Regulares...............................
+
+        /*
+     Expresiones Regulares
+        Son una secuencia de caracteres que forma un patrón de búsqueda, principalmente utilizada para la búsqueda de patrones de cadenas de caracteres.
+        https://es.wikipedia.org/wiki/Expresi%C3%B3n_regular
+        https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Regular_Expressions
+    */
+
+        let cadena = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi minus, dolores, consequatur suscipit harum aut sed aliquam non praesentium ducimus incidunt voluptatum nihil veniam molestias ipsa dolorem eos earum libero.";
+
+        /*  let cadena = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem fuga cupiditate dolores saepe, praesentium sit eaque recusandae id sapiente similique, laudantium voluptatum perferendis ea iure ad odio doloremque earum voluptate.";
+       let expReg = new RegExp("lorem", "ig");
+       console.log(expReg.test(cadena));
+       console.log(expReg.exec(cadena));
+       let expReg2 = /lorem{1,}/ig;
+       console.log(expReg2.test(cadena));
+       console.log(expReg2.exec(cadena)); */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </SCript>
+
+
+
+
+
+
 </body>
 
 </html>
